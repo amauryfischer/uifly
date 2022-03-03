@@ -9,7 +9,10 @@ const BaseButton = styled.button<{ color: string; textColor: string }>`
   padding-left: 1rem;
   padding-right: 1rem;
   border: none;
-  background-color: ${({ color }) => `var(--${color}500)`};
+  ${({ color }) =>
+    css`
+      background-color: var(--${color}500);
+    `};
   color: ${({ textColor }) => (textColor ? `var(--${textColor}900)` : "white")};
   border-radius: 4px;
 
@@ -17,6 +20,7 @@ const BaseButton = styled.button<{ color: string; textColor: string }>`
   transition: background 0.8s, transform 0.3s, background-color 0.3s,
     filter 0.3s, box-shadow 0.3s;
   &:hover {
+    cursor: pointer;
     transform: translateY(-0.15rem);
     ${({ color }) =>
       css`
@@ -27,8 +31,8 @@ const BaseButton = styled.button<{ color: string; textColor: string }>`
     ${({ color }) =>
       css`
         box-shadow: rgba(var(--${color}500-rgb), 0.2) 0px 2px 4px -1px,
-          rgb(var(--${color}500-rgb), 0.14) 0px 4px 5px 0px,
-          rgb(var(--${color}500-rgb), 0.12) 0px 1px 10px 0px;
+          rgba(var(--${color}500-rgb), 0.14) 0px 4px 5px 0px,
+          rgba(var(--${color}500-rgb), 0.12) 0px 1px 10px 0px;
       `};
   }
   &:active {
