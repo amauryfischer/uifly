@@ -8,21 +8,11 @@ import {
   PurpleButton,
   RedButton,
   YellowButton,
-} from "../utils/buttons"
+} from "../utils/design/buttons"
+import Flex from "../utils/design/flex"
 
 const Home = ({}) => {
-  return (
-    <>
-      <BlueButton>Ajouter un membre</BlueButton>
-      <PurpleButton>Ajouter un membre</PurpleButton>
-      <GreenButton>Ajouter un membre</GreenButton>
-      <RedButton>Ajouter un membre</RedButton>
-      <CyanButton>Ajouter un membre</CyanButton>
-      <PinkButton>Ajouter un membre</PinkButton>
-      <GreyButton>Ajouter un membre</GreyButton>
-      <YellowButton>Ajouter un membre</YellowButton>
-    </>
-  )
+  return <h1>home</h1>
 }
 
 export default Home

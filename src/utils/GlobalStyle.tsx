@@ -170,5 +170,14 @@ const GlobalStyle = createGlobalStyle`
     --grey800-rgb: 51, 51, 51;
     --grey900-rgb: 17, 17, 17;
   }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--grey900);
+    background-color: var(--grey100);
+    margin: 0;
+  }
 `
 export default GlobalStyle

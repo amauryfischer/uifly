@@ -7,6 +7,7 @@ const BaseButton = styled(Button)<{ $color: string; $textColor: string }>`
   text-transform: none !important;
   padding-left: 0.75rem !important;
   padding-right: 0.75rem !important;
+  width: fit-content;
   ${({ $color }) =>
     css`
       background: !important;

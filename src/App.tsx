@@ -1,19 +1,32 @@
 import { ThemeProvider } from "@mui/material"
 import { createTheme } from "@mui/material/styles"
 import React from "react"
-import logo from "./logo.svg"
-import Home from "./pages/Home"
-import Flex from "./utils/flex"
+import { BrowserRouter } from "react-router-dom"
+import ApplicationBar from "./pages/app/ApplicationBar"
+import Router from "./pages/app/Router"
 import GlobalStyle from "./utils/GlobalStyle"
+import styled from "styled-components"
+
 const theme = createTheme()
-function App() {
+
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 1rem;
+`
+
+const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <Flex gap="1rem">
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Home />
-      </Flex>
-    </ThemeProvider>
+        <ApplicationBar />
+        <PageContainer>
+          <Router />
+        </PageContainer>
+      </ThemeProvider>
+    </BrowserRouter>
   )
 }
 
