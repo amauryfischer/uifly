@@ -1,69 +1,71 @@
+import { Button } from "@mui/material"
 import styled, { css } from "styled-components"
 
-const BaseButton = styled.button<{ color: string; textColor: string }>`
-  // transform
-  background-position: center;
+const BaseButton = styled(Button)<{ $color: string; $textColor: string }>`
+  transition: 0.2s !important;
   box-shadow: 0 0 4px #999;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border: none;
-  ${({ color }) =>
+  text-transform: none !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  ${({ $color }) =>
     css`
-      background-color: var(--${color}500);
+      background: !important;
+      background: linear-gradient(
+          to left,
+          var(--${$color}500) 50%,
+          var(--${$color}700) 50%
+        )
+        right !important;
     `};
-  color: ${({ textColor }) => (textColor ? `var(--${textColor}900)` : "white")};
-  border-radius: 4px;
 
-  background-position: center;
-  transition: background 0.8s, transform 0.3s, background-color 0.3s,
-    filter 0.3s, box-shadow 0.3s;
+  color: ${({ $textColor }) =>
+    $textColor ? `var(--${$textColor}900)` : "white"} !important;
+
+  background-size: 200% !important;
+
   &:hover {
-    cursor: pointer;
-    transform: translateY(-0.15rem);
-    ${({ color }) =>
+    transform: translateY(-0.2rem);
+    background-position: left !important;
+    ${({ $color }) =>
       css`
-        background: var(--${color}600)
-          radial-gradient(circle, transparent 1%, var(--${color}600) 1%)
-          center/15000%;
-      `};
-    ${({ color }) =>
-      css`
-        box-shadow: rgba(var(--${color}500-rgb), 0.2) 0px 2px 4px -1px,
-          rgba(var(--${color}500-rgb), 0.14) 0px 4px 5px 0px,
-          rgba(var(--${color}500-rgb), 0.12) 0px 1px 10px 0px;
+        box-shadow: rgba(var(--${$color}500-rgb), 0.5) 0px 3px 6px -2px,
+          rgba(var(--${$color}500-rgb), 0.2) 0px 8px 10px 0px,
+          rgba(var(--${$color}500-rgb), 0.1) 0px 2px 20px 0px;
       `};
   }
+
   &:active {
-    background-color: #ffffff3d;
-    transform: scale(0.97);
-    background-size: 100%;
-    transition: background 0s;
+    transform: scale(0.9);
+    ${({ $color }) =>
+      css`
+        box-shadow: rgba(var(--${$color}500-rgb), 0.2) 0px 1px 3px -1px,
+          rgba(var(--${$color}500-rgb), 0.18) 0px 4px 5px 0px,
+          rgba(var(--${$color}500-rgb), 0.12) 0px 1px 10px 0px;
+      `};
   }
 `
 
 export const BlueButton = (props: any) => {
-  return <BaseButton {...props} color="blue" />
+  return <BaseButton {...props} $color="blue" />
 }
 export const PurpleButton = (props: any) => {
-  return <BaseButton {...props} color="purple" />
+  return <BaseButton {...props} $color="purple" />
 }
 export const GreenButton = (props: any) => {
-  return <BaseButton {...props} color="green" />
+  return <BaseButton {...props} $color="green" />
 }
 export const YellowButton = (props: any) => {
-  return <BaseButton {...props} color="yellow" />
+  return <BaseButton {...props} $color="yellow" />
 }
 export const RedButton = (props: any) => {
-  return <BaseButton {...props} color="red" />
+  return <BaseButton {...props} $color="red" />
 }
 export const CyanButton = (props: any) => {
-  return <BaseButton {...props} color="cyan" textColor="grey" />
+  return <BaseButton {...props} $color="cyan" $textColor="grey" />
 }
 export const PinkButton = (props: any) => {
-  return <BaseButton {...props} color="pink" />
+  return <BaseButton {...props} $color="pink" />
 }
 export const GreyButton = (props: any) => {
-  return <BaseButton {...props} color="grey" />
+  return <BaseButton {...props} $color="grey" />
 }
